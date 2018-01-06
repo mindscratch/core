@@ -13,6 +13,7 @@ const (
 	MYSQL    = "mysql"
 	MSSQL    = "mssql"
 	ORACLE   = "oracle"
+	CRATE    = "crate"
 )
 
 // xorm SQL types
