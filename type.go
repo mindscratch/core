@@ -66,6 +66,7 @@ var (
 	Int       = "INT"
 	Integer   = "INTEGER"
 	BigInt    = "BIGINT"
+	Long      = "LONG"
 
 	Enum = "ENUM"
 	Set  = "SET"
