@@ -80,6 +80,7 @@ var (
 	MediumText = "MEDIUMTEXT"
 	LongText   = "LONGTEXT"
 	Uuid       = "UUID"
+	String     = "STRING"
 
 	Date       = "DATE"
 	DateTime   = "DATETIME"
@@ -119,6 +120,7 @@ var (
 		Int:       NUMERIC_TYPE,
 		Integer:   NUMERIC_TYPE,
 		BigInt:    NUMERIC_TYPE,
+		Long:      NUMERIC_TYPE,
 
 		Enum:  TEXT_TYPE,
 		Set:   TEXT_TYPE,
@@ -134,6 +136,7 @@ var (
 		LongText:   TEXT_TYPE,
 		Uuid:       TEXT_TYPE,
 		Clob:       TEXT_TYPE,
+		String:     TEXT_TYPE,
 
 		Date:       TIME_TYPE,
 		DateTime:   TIME_TYPE,
@@ -285,13 +288,13 @@ func SQLType2Type(st SQLType) reflect.Type {
 	switch name {
 	case Bit, TinyInt, SmallInt, MediumInt, Int, Integer, Serial:
 		return reflect.TypeOf(1)
-	case BigInt, BigSerial:
+	case BigInt, BigSerial, Long:
 		return reflect.TypeOf(int64(1))
 	case Float, Real:
 		return reflect.TypeOf(float32(1))
 	case Double:
 		return reflect.TypeOf(float64(1))
-	case Char, Varchar, NVarchar, TinyText, Text, MediumText, LongText, Enum, Set, Uuid, Clob:
+	case Char, Varchar, NVarchar, TinyText, Text, MediumText, LongText, Enum, Set, Uuid, Clob, String:
 		return reflect.TypeOf("")
 	case TinyBlob, Blob, LongBlob, Bytea, Binary, MediumBlob, VarBinary:
 		return reflect.TypeOf([]byte{})
